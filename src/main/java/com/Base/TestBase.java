@@ -4,6 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Properties;
+import java.util.Random;
+
 public class TestBase {
     public static WebDriver driver;
 
@@ -29,5 +35,23 @@ public class TestBase {
 
     public static void openUrl(String URL){
         driver.get(URL);
+    }
+
+    public static String RandomName() throws IOException {
+        FileOutputStream fis=new FileOutputStream("./src/main/resources/Data.properties");
+        Properties prop=new Properties();
+
+        String SALTCHAR="abcdefAbcdef1234";
+        StringBuilder salt=new StringBuilder();
+        Random rnd=new Random();
+
+        while (salt.length()<5){
+            int index=(int)(rnd.nextFloat()*SALTCHAR.length());
+            salt.append(SALTCHAR.charAt(index));
+        }
+        String saltStr=salt.toString();
+        prop.setProperty("RandomName",saltStr);
+        prop.store(fis,null);
+        return saltStr;
     }
 }
