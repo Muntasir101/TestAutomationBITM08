@@ -4,7 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -20,7 +19,6 @@ public class TestBase {
         driver.manage().window().maximize();
     }
     public static void firefox_close(){
-
         driver.close();
     }
 
@@ -37,7 +35,7 @@ public class TestBase {
         driver.get(URL);
     }
 
-    public static String RandomName() throws IOException {
+    public static String RandomEmail() throws IOException {
         FileOutputStream fis=new FileOutputStream("./src/main/resources/Data.properties");
         Properties prop=new Properties();
 
@@ -49,8 +47,8 @@ public class TestBase {
             int index=(int)(rnd.nextFloat()*SALTCHAR.length());
             salt.append(SALTCHAR.charAt(index));
         }
-        String saltStr=salt.toString();
-        prop.setProperty("RandomName",saltStr);
+        String saltStr=salt.toString().concat("@gmail.com");
+        prop.setProperty("RandomEmail",saltStr);
         prop.store(fis,null);
         return saltStr;
     }
