@@ -21,6 +21,9 @@ public class BrowserWindowHandle extends TestBase {
         String childWindowID=it.next();
         System.out.println("Child window ID is : "+childWindowID);
 
+//        String childWindow2ID=it.next();
+//        System.out.println("Child window ID is : "+childWindowID);
+
         //Switching
         driver.switchTo().window(childWindowID);
         Thread.sleep(3000);
@@ -32,6 +35,7 @@ public class BrowserWindowHandle extends TestBase {
         driver.navigate().to("https://google.com");
         System.out.println("Parent new Webpage Title :" +driver.getTitle());
         // driver.close();
+
 
         driver.quit();
 
