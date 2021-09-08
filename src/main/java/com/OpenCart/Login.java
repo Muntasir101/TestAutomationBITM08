@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class Login extends TestBase {
+
     public static void main(String[] args) {
         chrome_launch();
         openUrl("https://demo.opencart.com/");
