@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="F:/Training/PeopleNTech/BITM Online 8/TestAUtomation/src/main/java/com/TestNG/LoginTestNG2.java"><classes><class name="com.TestNG.LoginTestNG2"><methods><include name="TC_Valid_001"/><include name="TC_InValid_002"/><include name="TC_InValid_003"/></methods></class></classes></test></suite>
